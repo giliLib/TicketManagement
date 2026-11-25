@@ -1,0 +1,186 @@
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+main { max-width: 1200px; margin: 48px auto; padding: 24px; }
+
+section, .ticket-filters, .form-actions, .modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+section, .ticket-filters {
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+input, select, button { padding: 10px 12px; font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .6; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 14px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+th { background: #f1f5f9; }
+
+.status-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.status-cell select,
+.ticket-filters input,
+.ticket-filters select {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: white;
+}
+
+.status-cell select { font-size: 13px; }
+.ticket-filters input { flex: 1; min-width: 220px; }
+
+/* Badges */
+.status-badge, .priority-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-open { background: #dbeafe; color: #1d4ed8; }
+.status-inprogress { background: #fef3c7; color: #92400e; }
+.status-closed { background: #dcfce7; color: #166534; }
+.priority-low { background: #f1f5f9; color: #475569; }
+.priority-medium { background: #ffedd5; color: #9a3412; }
+.priority-high { background: #fee2e2; color: #991b1b; }
+
+/* Form */
+form {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px #0f172a0d;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-field label { font-weight: 600; }
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.form-field textarea { min-height: 120px; resize: vertical; }
+.form-actions { justify-content: flex-end; }
+.form-actions button { border: 1px solid #cbd5e1; border-radius: 8px; }
+
+.form-actions button[type="submit"] {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.field-error {
+  display: block;
+  margin-top: 5px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-field :is(input, textarea)[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.form-field :is(input, textarea)[aria-invalid="true"]:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 1px;
+}
+
+/* Feedback */
+.error-message {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  color: #64748b;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+/* Delete modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #0f172a73;
+}
+
+.confirm-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px #00000026;
+}
+
+.modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  background: #fef2f2;
+  border-radius: 12px;
+  font-size: 24px;
+}
+
+.confirm-modal h2 { margin: 0 0 10px; font-size: 22px; color: #111827; }
+.confirm-modal p { margin-bottom: 24px; color: #6b7280; line-height: 1.6; }
+.modal-actions { justify-content: flex-end; }
+
+.modal-actions button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.modal-cancel { background: white; color: #374151; border: 1px solid #d1d5db; }
+.modal-delete { background: #dc2626; color: white; border: 1px solid #dc2626; }
+.modal-delete:hover:not(:disabled) { background: #b91c1c; }
+.modal-actions button:disabled { opacity: .6; cursor: not-allowed; }

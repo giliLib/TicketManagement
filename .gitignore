@@ -1,0 +1,26 @@
+# .NET build files
+**/bin/
+**/obj/
+
+# Frontend
+**/node_modules/
+**/dist/
+**/coverage/
+
+# Local database
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local configuration
+.env
+.env.*
+!.env.example
+**/appsettings.Development.json
+
+# IDE and OS
+.vs/
+.idea/
+.DS_Store
